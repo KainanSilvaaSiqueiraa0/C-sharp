@@ -1,42 +1,38 @@
 ﻿using System;
 
-namespace TIPOS_DE_VARÍAVEIS
+namespace TipoByteInt
 {
     class Program
     {
         static void Main(string[] args)
+
         {
-            int num1 = 5;
-            int num2 = num1;
-            int resultado = num1 + num2;
-            num1 = 6;
+            byte v1 = 10;
+            Console.WriteLine("o valor de v1 é: {0}", v1);
+            Console.WriteLine("o tipo é: {0}", v1.GetType());
 
-            Console.WriteLine("valor do num1 é: {0} e está na stack", num1.ToString());
-            Console.WriteLine("valor do num2 é: {0} e está na stack", num2.ToString());
-            Console.ReadKey();
-            Console.WriteLine("Calculadora");
-            Calculadora minhacalculadora = new Calculadora();
-            minhacalculadora.somar();
 
-            Console.WriteLine("Variaveis nullo,");
-            int? altura = null;
 
-            if (altura.HasValue)
+            Console.WriteLine("digite um valor na faixa de 0 a 255");
+
+            try
             {
-                Console.WriteLine("o valor é: {0}: ", altura);
+                byte vdigitado = Convert.ToByte(Console.ReadLine());
+                Console.WriteLine("O valor digitado é byte");
             }
-            else
-            {
-                Console.WriteLine("altura está nullo");
-            }   
+            catch (OverflowException) {
+                Console.WriteLine("o valor digitado não é byte");
+                var vdigitado = Convert.ToByte(Console.ReadLine());
+                if (vdigitado <= 255)
+                {
+                    Console.WriteLine("o valor digitado é byte");
+                }
+                else
+                {
+                    Console.WriteLine("o valor digitado não é byte");
 
+                }
 
-
-
-            Console.WriteLine(altura.ToString());
-
-            Console.ReadKey();
-             }
-           
-    }
-}
+            }
+ {
+ 
